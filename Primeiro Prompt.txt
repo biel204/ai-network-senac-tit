@@ -1,0 +1,141 @@
+
+Preciso instalar o Linux no VirtualBOX para iniciar a Aula de Inteligência Artificial para Redes de Computadores. 
+
+
+Para instalar Linux no Oracle VM VirtualBox e preparar seu ambiente para a aula de IA aplicada a redes, siga um procedimento técnico direto:
+
+1. Escolha da distribuição Linux
+Para esse tipo de aula, as opções mais comuns:
+
+Ubuntu (recomendado) – fácil, bem documentado
+
+Debian – mais estável e leve
+
+Kali Linux – usado se houver foco em segurança/redes
+
+➡️ Se não houver instrução específica do professor, use Ubuntu.
+
+2. Baixar a ISO
+Acesse o site oficial da distro e baixe o arquivo .iso:
+
+Ubuntu: ubuntu.com/download
+
+Debian: debian.org
+
+Kali: kali.org
+
+3. Criar a máquina virtual no VirtualBox
+Abra o VirtualBox → clique em “Novo”:
+
+Configurações recomendadas:
+
+Nome: Linux-IA
+
+Tipo: Linux
+
+Versão: Ubuntu (64-bit) (ou equivalente)
+
+Memória RAM:
+
+Mínimo: 2 GB
+
+Ideal: 4 GB ou mais
+
+CPU:
+
+2 núcleos (ou mais se disponível)
+
+Disco:
+
+Tipo: VDI
+
+Alocação: Dinamicamente alocado
+
+Tamanho: 20–40 GB
+
+4. Associar a ISO
+Selecione a VM → Configurações → Armazenamento
+
+Em “Controlador IDE” → clique no ícone de disco
+
+Escolha o arquivo .iso que você baixou
+
+5. Instalar o Linux
+Inicie a VM → siga o instalador:
+
+No caso do Ubuntu:
+
+Escolha idioma
+
+“Instalação normal”
+
+Marque “Instalar software de terceiros” (opcional)
+
+Tipo de instalação: “Apagar disco e instalar” (isso só afeta a VM)
+
+Crie:
+
+Usuário
+
+Senha
+
+Aguarde a instalação (~10–20 min)
+
+6. Pós-instalação (essencial para aulas de redes/IA)
+Após iniciar o sistema:
+
+Atualizar sistema
+sudo apt update && sudo apt upgrade -y
+Instalar ferramentas básicas
+sudo apt install net-tools curl git wget -y
+(Opcional) Ferramentas de redes
+sudo apt install wireshark nmap -y
+7. Melhorar integração (Guest Additions)
+No menu da VM:
+
+Dispositivos → Inserir imagem do CD dos Adicionais para Convidado
+
+Instale para habilitar:
+
+Tela cheia
+
+Melhor desempenho
+
+Copiar/colar
+
+8. Configuração de rede (importante para sua aula)
+No VirtualBox:
+
+Modo NAT → já funciona com internet
+
+Bridge Adapter (Avançado) → permite simular rede real (recomendado para aulas de redes)
+
+Resultado esperado
+Você terá:
+
+Um Linux funcional rodando dentro do Windows
+
+Ambiente pronto para:
+
+Python
+
+Simulações de rede
+
+Ferramentas de IA
+
+Se quiser otimizar para IA
+Posso te orientar a instalar:
+
+Python + pip + venv
+
+Bibliotecas como TensorFlow ou PyTorch
+
+Ferramentas específicas para redes
+
+Só me diga:
+👉 qual distribuição você escolheu
+👉 quanto de RAM seu PC tem
+
+
+
+Eu achei bem útil a questão dos tópicos criados que facilita a questão de quem não 

@@ -1,0 +1,122 @@
+
+Sou Aluno do Curso Livre de Inteligência Artificial Voltada a Redes de Computadores do SENAC São Paulo Unidade Lapa Tito, preciso importar uma imagem da máquina virtual do GNU/Linux Ubuntu Server 22.04.4 LTS desenvolvida pelo Professor Robson Vaamonde no Oracle Virtualbox versão 7.2 já instalado e configurado nos computadores do laboratório de informática da unidade, o sistema operacional dos laboratórios é o Microsoft Windows 11, essa imagem já foi disponibilizada pelo Professor para fazer o download e está disponível na pasta Downloads com o nome de UbuntuServer-OnPremises.ova, essa imagem será utilizada em todas as aulas práticas de IA. Para isso preciso de um passo a passo detalhado (Simples, Objetivo, Direto e pode usar Ícones para facilitar o entendimento) mostrando como importar essa imagem e configurar a rede em modo Bridge (Ponte) utilizando a rede cabeada local do laboratório e no final iniciar a máquina virtual para acesso remoto via SSH.
+
+Segue um procedimento direto e operacional para importar a VM UbuntuServer-OnPremises.ova no Oracle VirtualBox 7.2, configurar rede em Bridge (Ponte) e acessar via SSH.
+
+🧩 1) Importar a Máquina Virtual (.OVA)
+Abra o Oracle VirtualBox
+
+Clique em 📁 Arquivo → Importar Appliance
+
+Clique em 📂 e selecione:
+
+Downloads\UbuntuServer-OnPremises.ova
+Clique em ➡️ Próximo
+
+Revise as configurações (pode manter padrão)
+
+Clique em ✅ Importar
+
+Aguarde o processo finalizar
+
+🌐 2) Configurar Rede em Modo Bridge (Ponte)
+Selecione a VM importada (UbuntuServer-OnPremises)
+
+Clique em ⚙️ Configurações
+
+Vá até 🌐 Rede
+
+Em Adaptador 1:
+
+✔️ Marque: Habilitar Placa de Rede
+
+📌 Em “Conectado a”: selecione Adaptador em Ponte
+
+📡 Em “Nome”: escolha a placa Ethernet cabeada (ex: Intel(R) Ethernet, Realtek, etc.)
+
+🔧 Modo Promíscuo: Permitir Tudo (se disponível)
+
+Clique em 💾 OK
+
+📌 Importante:
+Use sempre a interface cabeada do laboratório (evite Wi-Fi).
+
+▶️ 3) Iniciar a Máquina Virtual
+Selecione a VM
+
+Clique em ▶️ Iniciar
+
+Aguarde o boot do Ubuntu Server
+
+🔍 4) Identificar o IP da Máquina Virtual
+No terminal da VM:
+
+ip a
+ou
+
+hostname -I
+📌 Anote o IP (exemplo):
+
+192.168.0.105
+🔐 5) Verificar Serviço SSH
+Normalmente já vem ativo. Se precisar:
+
+sudo systemctl status ssh
+Se não estiver ativo:
+
+sudo systemctl enable ssh
+sudo systemctl start ssh
+💻 6) Acesso Remoto via SSH (Windows 11)
+No Windows (PowerShell ou Prompt):
+
+ssh usuario@IP_DA_VM
+Exemplo:
+
+ssh aluno@192.168.0.105
+📌 Aceite a chave (digite yes) na primeira conexão.
+
+⚠️ Problemas Comuns e Soluções
+❌ Sem IP (ou IP 169.254.x.x)
+Verifique se escolheu a placa Ethernet correta
+
+Confirme que o cabo de rede está conectado
+
+Reinicie a VM
+
+❌ Não conecta via SSH
+Teste:
+
+ping IP_DA_VM
+Verifique firewall:
+
+sudo ufw status
+Libere SSH (se necessário):
+
+sudo ufw allow ssh
+❌ Sem rede no Bridge
+Em alguns laboratórios, o switch pode limitar MACs
+
+Tente:
+
+Trocar a interface de rede
+
+Reiniciar o VirtualBox
+
+Executar como administrador
+
+✅ Resultado Esperado
+VM importada com sucesso
+
+Rede em modo Bridge funcionando
+
+IP válido da rede do laboratório
+
+Acesso remoto via SSH operacional
+
+Se quiser, posso te fornecer um checklist de validação rápida (tipo prova prática do SENAC) ou comandos padrão usados pelo Professor Vaamonde nas aulas.
+
+
+
+
+
+
